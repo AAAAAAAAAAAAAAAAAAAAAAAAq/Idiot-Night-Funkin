@@ -58,7 +58,7 @@ class TitleState extends MusicBeatState
 
 	#if TITLE_SCREEN_EASTER_EGG
 	final easterEggKeys:Array<String> = [
-		'SHADOW', 'RIVEREN', 'BBPANZU', 'PESSY'
+		'FEMBOY'
 	];
 	final allowedKeys:String = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	var easterEggKeysBuffer:String = '';
@@ -267,32 +267,12 @@ class TitleState extends MusicBeatState
 		var easterEgg:String = FlxG.save.data.psychDevsEasterEgg;
 		switch(easterEgg.toUpperCase())
 		{
-			case 'SHADOW':
-				characterImage = 'ShadowBump';
-				animationName = 'Shadow Title Bump';
+			case 'FEMBOY':
+				characterImage = 'femboy title';
+				animationName = 'Femboy Title Bump';
 				gfPosition.x += 210;
 				gfPosition.y += 40;
 				useIdle = true;
-			case 'RIVEREN':
-				characterImage = 'ZRiverBump';
-				animationName = 'River Title Bump';
-				gfPosition.x += 180;
-				gfPosition.y += 40;
-				useIdle = true;
-			case 'BBPANZU':
-				characterImage = 'BBBump';
-				animationName = 'BB Title Bump';
-				danceLeftFrames = [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27];
-				danceRightFrames = [27, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
-				gfPosition.x += 45;
-				gfPosition.y += 100;
-			case 'PESSY':
-				characterImage = 'PessyBump';
-				animationName = 'Pessy Title Bump';
-				gfPosition.x += 165;
-				gfPosition.y += 60;
-				danceLeftFrames = [29, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-				danceRightFrames = [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28];
 		}
 	}
 
@@ -527,16 +507,16 @@ class TitleState extends MusicBeatState
 					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				case 2:
-					createCoolText(['Psych Engine by'], 40);
+					createCoolText(['Cool mod by'], 40);
 				case 4:
-					addMoreText('Shadow Mario', 40);
-					addMoreText('Riveren', 40);
+					addMoreText('Katz', 40);
+					addMoreText('Mauzy and Palad', 40);
 				case 5:
 					deleteCoolText();
 				case 6:
-					createCoolText(['Not associated', 'with'], -40);
+					createCoolText(['Associated', 'with'], -40);
 				case 8:
-					addMoreText('newgrounds', -40);
+					addMoreText('Gay sex', -40);
 					ngSpr.visible = true;
 				case 9:
 					deleteCoolText();
@@ -548,7 +528,7 @@ class TitleState extends MusicBeatState
 				case 13:
 					deleteCoolText();
 				case 14:
-					addMoreText('Friday');
+					addMoreText('Idiot');
 				case 15:
 					addMoreText('Night');
 				case 16:
