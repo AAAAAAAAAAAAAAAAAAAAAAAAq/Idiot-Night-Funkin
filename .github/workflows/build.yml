@@ -1,0 +1,43 @@
+name: Build Windows EXE
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Haxe
+      uses: krdlab/setup-haxe@v1
+      with:
+        haxe-version: 4.3.3
+
+    - name: Install dependencies
+      run: |
+        haxelib install lime
+        haxelib install openfl
+        haxelib install flixel
+        haxelib install flixel-tools
+        haxelib install hxcpp
+        haxelib install flixel-addons
+        haxelib install flixel-ui
+        haxelib run lime setup flixel
+        haxelib run lime setup windows
+
+    - name: Build Windows EXE
+      run: |
+        haxelib run lime build windows
+
+    - name: Upload EXE artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: windows-exe
+        path: export/release/windows/bin/
